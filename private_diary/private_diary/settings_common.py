@@ -145,5 +145,8 @@ ACCOUNT_EMAIL_REQUIRED = True
 LOGIN_REQUEST_URL = 'diary:index'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
-
 ACCOUT_LOGOUT_ON_GET = True
+
+MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = 'diary:diary_list'
