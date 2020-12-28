@@ -65,7 +65,7 @@
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'diary_list' %}">DIARY LIST</a>
+                  <a class="nav-link" href="{% url 'diary:diary_list' %}">DIARY LIST</a>
               </li>
               {% endif %}
             </ul>
@@ -92,7 +92,8 @@
         </div>
       </nav>
 
-      {% block header %}{% endblock %} {% if messages}
+      {% block header %}{% endblock %}
+      {% if messages %}
       <div class="container">
         <div class="row">
           <div class="my-div-style w-100">
@@ -106,7 +107,7 @@
           </div>
         </div>
       </div>
-
+      {% endif %}
       {% block contents %}{% endblock %}
 
       <!-- Footer -->
