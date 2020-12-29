@@ -53,3 +53,29 @@ class DiaryCreateView(LoginRequiredMixin,generic.CreateView):
     def form_invalid(self,form):
         messages.error(self.request,'Failed to create your diary')
         return super().form_invalid(form)
+
+class DiaryUpdateView(LoginRequiredMixin,generic.UpdateView):
+    model = Diary
+    template_name = 'diary_update.html'
+    form_class = DiaryCreateForm
+
+    def get_success_url(self):
+        return reverse_lazy('diary:diary_detail',kwargs={'pk':self.kwargs['pk']})
+
+    def form_valid(self,form):
+        messages.success(self.request,  'Your diary has been updated')
+        return super().form_valid(form)
+
+    def form_invalid(self,form):
+        messages.error(self.request,'Failed to update your diary')
+        return super().form_invalid(form)
+
+class DiaryDeleteView(LoginRequiredMixin,generic.DeleteView):
+    model = Diary
+    template_name = 'diary_delete.html'
+    form_class = DiaryCreateForm
+    success_url = reverse_lazy('diary:diary_list')
+
+    def delete(self,request,*args,**kwargs):
+        messages.success(self.request,'Your diary has been deleted')
+        return super().delete(request,*args,**kwargs)

@@ -22,7 +22,7 @@
       <div class="col-3">
         <strong>Content</strong>
       </div>
-      <div class="col-9">{{ object.content | linebreaksbr}}</div>
+      <div class="col-9">{{ object.content | linebreaksbr }}</div>
     </div>
 
     <hr />
@@ -64,6 +64,8 @@
         <strong>Updated_date</strong>
       </div>
       <div class="col-9">{{ object.updated_at }}</div>
+      <a class="btn btn-success mt-5 mb-3" href="{% url 'diary:diary_update' object.pk %}">Update</a>
+      <a class="btn btn-danger mt-5 ml-2 mb-3" href="{% url 'diary:diary_delete' object.pk %}">Delete</a>
     </div>
   </div>
 </div>
