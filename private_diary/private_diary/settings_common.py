@@ -150,3 +150,6 @@ ACCOUT_LOGOUT_ON_GET = True
 MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'diary:diary_list'
+
+BACKUP_PATH = 'bakup/'
+NUM_SAVED_BACKUP = 10
